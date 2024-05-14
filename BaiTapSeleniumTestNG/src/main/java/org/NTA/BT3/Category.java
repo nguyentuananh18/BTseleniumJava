@@ -1,9 +1,11 @@
 package org.NTA.BT3;
 
 import org.NTA.common.TestBase;
+import org.NTA.common.WebUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static org.NTA.common.WebUI.*;
 
@@ -31,11 +33,12 @@ public class Category extends TestBase {
     By addFilesButton = By.xpath("//button[normalize-space()='Add Files']");
     By saveButton = By.xpath("//button[normalize-space()='Save']");
     By searchInput = By.xpath("//input[@id='search']");
-    Login loginTest = new Login();
+    Login login = new Login();
     String nameTest ="Tuanbuffet123";
 
     @Test
     public void CheckAddCategory(){
+        login.VerifyLoginSuccess();
         AddCategory(nameTest);
         SearchNameCategory(nameTest);
         for (int i = 1; i<= getListElements(By.xpath("//tbody/tr")); i++){
@@ -43,7 +46,6 @@ public class Category extends TestBase {
         }
     }
     public void AddCategory(String name) {
-        loginTest.VerifyLoginSuccess();
         try {
             clickElement(productButton);
         }

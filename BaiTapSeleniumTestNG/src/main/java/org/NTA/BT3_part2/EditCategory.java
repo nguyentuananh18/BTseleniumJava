@@ -1,6 +1,7 @@
 package org.NTA.BT3_part2;
 
 import org.NTA.BT3.Category;
+import org.NTA.BT3.Login;
 import org.NTA.common.TestBase;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -14,12 +15,13 @@ public class EditCategory extends TestBase {
     By saveButton = By.xpath("//button[normalize-space()='Save']");
     By categoryButton = By.xpath("//span[normalize-space()='Category']");
     By messageDataNotify = By.xpath("//span[@data-notify='message']");
-
     String nameTest ="Nguyễn Tuấn Anh";
     String nameEdit = "Nguyễn Tuấn Anh edited";
+    Login login = new Login();
     Category category = new Category();
     @Test
     public void CheckEditCategory(){
+        login.VerifyLoginSuccess();
         category.AddCategory(nameTest);
         category.SearchNameCategory(nameTest);
         editCategory(nameEdit);

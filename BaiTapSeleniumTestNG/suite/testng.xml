@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Parallel Test Suite" parallel="methods" thread-count="2">
+<suite name="Parallel Test Suite" parallel="methods" thread-count="3">
     <test name="Test">
         <classes>
             <class name="org.NTA.BT3.Login" />
